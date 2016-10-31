@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"
+      >
+
+    <context:component-scan base-package="ssh"/>
+
+    <bean id="myDataSource" class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"/>
+        <property name="url" value="jdbc:mysql://192.168.1.120:3306/hibernate?charsetEncoding=utf8"/>
+        <property name="username" value="root"/>
+        <property name="password" value="root"/>
+    </bean>
+
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate5.LocalSessionFactoryBean">
+        <property name="dataSource" ref="myDataSource"/>
+        <property name="mappingLocations">
+            <list>
+                <value>classpath*:/hbm/*.hbm.xml</value>
+            </list>
+        </property>
+        <property name="hibernateProperties">
+            <value>
+                hibernate.hbm2ddl.auto=update
+                hibernate.dialect=org.hibernate.dialect.MySQL5InnoDBDialect
+                hibernate.show_sql=true
+                hibernate.format_sql=true
+                hibernate.query.substitutions=true 1, false 0
+                hibernate.jdbc.batch_size=20
+                <!--hibernate.cache.use_second_level_cache=false-->
+                <!--hibernate.cache.use_query_cache=false-->
+                <!--hibernate.cache.region.factory_class=org.hibernate.cache.ehcache.EhCacheRegionFactory-->
+            </value>
+        </property>
+    </bean>
+</beans>
