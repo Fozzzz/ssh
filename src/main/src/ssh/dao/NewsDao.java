@@ -21,6 +21,7 @@ public class NewsDao {
         session.beginTransaction();
         session.persist(news);
         session.getTransaction().commit();
+        session.close();
     }
     public void delete(int id) {
         Session session = sessionFactory.openSession();
@@ -28,18 +29,21 @@ public class NewsDao {
         News news = session.get(News.class, id);
         session.delete(news);
         session.getTransaction().commit();
+        session.close();
     }
     public void edit(News news) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
         session.saveOrUpdate(news);
         session.getTransaction().commit();
+        session.close();
     }
     public List<News> get(int first, int max, String type) {
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("from News n where n.type=:type").setParameter("type", type);
         query.setFirstResult(first).setMaxResults(max);
         List<News> list = query.list();
+        session.close();
         return list;
     }
 }
