@@ -13,7 +13,8 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/11/1.
  */
-@Controller("/main")
+@Controller
+@RequestMapping("/main")
 public class NewsWeb {
     @Autowired
     private NewsDao newsDao;
