@@ -12,7 +12,7 @@ public class Order {
     private String phone;
 
     /***
-     * 购物商品内容id数量  ,号隔开
+     * 购物商品内容id数量  1+3 2+2
      */
     private String cars;
     /**
