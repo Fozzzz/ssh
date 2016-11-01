@@ -22,8 +22,7 @@ public class NewsWeb {
     @RequestMapping("showNewsList")
     public @ResponseBody
     List<News> showNews(String type){
-        List<News> newsList =new ArrayList<News>();
-        newsList =newsDao.get(0,4,type);
+        List<News> newsList =newsDao.get(0,4,type);
         return newsList;
     }
 }
