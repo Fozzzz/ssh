@@ -6,7 +6,6 @@ import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import ssh.entity.News;
-import ssh.entity.Order;
 
 import java.util.List;
 

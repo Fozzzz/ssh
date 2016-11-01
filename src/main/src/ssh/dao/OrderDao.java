@@ -5,8 +5,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.query.Query;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import ssh.entity.Goods;
-import ssh.entity.Order;
+import ssh.entity.Orders;
 
 import java.util.List;
 
@@ -17,30 +16,30 @@ import java.util.List;
 public class OrderDao {
     @Autowired
     private SessionFactory sessionFactory;
-    public void add(Order order) {
+    public void add(Orders orders) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.persist(order);
+        session.persist(orders);
         session.getTransaction().commit();
     }
     public void delete(int id) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        Order order = session.get(Order.class, id);
-        session.delete(order);
+        Orders orders = session.get(Orders.class, id);
+        session.delete(orders);
         session.getTransaction().commit();
     }
-    public void edit(Order order) {
+    public void edit(Orders orders) {
         Session session = sessionFactory.openSession();
         session.beginTransaction();
-        session.saveOrUpdate(order);
+        session.saveOrUpdate(orders);
         session.getTransaction().commit();
     }
-    public List<Order> get(int first,int max,String type) {
+    public List<Orders> get(int first, int max, String type) {
         Session session = sessionFactory.openSession();
         Query query = session.createQuery("from Order");
         query.setFirstResult(first).setMaxResults(max);
-        List<Order> list = query.list();
+        List<Orders> list = query.list();
         return list;
     }
 }
