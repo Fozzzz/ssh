@@ -22,8 +22,7 @@ public class GoodsWeb {
     @RequestMapping("/showGoods")
     public @ResponseBody
     List<Goods> showGoods(){
-        List<Goods> goodsList=new ArrayList<Goods>();
-        goodsList=goodDao.get(0,20);
+        List<Goods> goodsList=goodDao.get(0,20);
         return goodsList;
     }
 }
