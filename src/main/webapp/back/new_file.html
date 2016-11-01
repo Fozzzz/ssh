@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script type="text/javascript" src="js/vue.js"></script>
+		<script type="text/javascript" src="js/vue-resource.min.js"></script>
+	</head>
+	<body>
+		<div id="fozzz">
+			{{name}}
+		</div>
+		<a class="btn" id="modal-851409" role="button" href="#modal-container-851409" data-toggle="modal">添加</a>
+		<div class="modal fade" id="modal-container-851409" role="dialog" aria-hidden="true" aria-labelledby="myModalLabel">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button class="close" aria-hidden="true" type="button" data-dismiss="modal">×</button>
+						<h4 class="modal-title" id="myModalLabel">
+							添加新闻
+						</h4>
+					</div>
+					<div class="modal-body">
+						内容...
+					</div>
+					<div class="modal-footer">
+						<button class="btn btn-default" type="button" data-dismiss="modal">关闭</button> 
+						<button class="btn btn-primary" type="button">保存</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
+<script>
+	new Vue({
+  el: '#fozzz',
+  data: {
+    name: 'Hello Vue.js!'
+  }
+})
+</script>

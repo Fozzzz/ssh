@@ -13,7 +13,7 @@ import java.util.List;
  * Created by Administrator on 2016/11/1.
  */
 @Component
-public class GoodDao {
+public class GoodsDao {
     @Autowired
     private SessionFactory sessionFactory;
     public void add(Goods goods) {

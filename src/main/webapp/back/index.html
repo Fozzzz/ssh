@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html xmlns:v-on="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>玉龙雪山后台管理</title>
+    <script type="text/javascript" src="js/vue.js"></script>
+    <script type="text/javascript" src="js/vue-resource.min.js"></script>
+    <script type="text/javascript" src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+</head>
+
+<body>
+<div id="fozzz">
+    <div class="container">
+        <hr/>
+        <div class="row clearfix">
+            <div class="col-md-8 column">
+                <h3 class="text-left">
+                    玉龙雪山后台管理
+                </h3>
+            </div>
+            <div class="col-md-4 column">
+                <h3 class="text-right">欢迎您:admin
+                    <button class="btn btn-default" type="button">退出</button>
+                </h3>
+            </div>
+        </div>
+        <hr/>
+        <div class="row clearfix">
+            <div class="col-md-3 column">
+                <div class="panel-group" id="panel-645645">
+
+                    <!--
+                    作者：lzslov@qq.com
+                    时间：2016-11-01
+                    描述：新闻
+                -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title collapsed" href="#panel-element-893417" data-toggle="collapse"
+                               data-parent="#panel-645645">新闻</a>
+                        </div>
+                        <div class="panel-collapse collapse" id="panel-element-893417">
+                            <div class="panel-body">
+                                <a class="panel-title collapsed" href=""> 查看新闻</a>
+                            </div>
+                            <div class="panel-body">
+                                <a class="panel-title collapsed" role="button"
+                                   href="#more" data-toggle="modal">添加新闻</a>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <!--
+                    作者：lzslov@qq.com
+                    时间：2016-11-01
+                    描述：商品
+                -->
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title collapsed" href="#panel-element-910512" data-toggle="collapse"
+                               data-parent="#panel-645645">商品</a>
+                        </div>
+                        <div class="panel-collapse collapse" id="panel-element-910512">
+                            <div class="panel-body">
+                                <a class="panel-title collapsed" href=""> 查看商品</a>
+                            </div>
+                            <div class="panel-body">
+                                <a class="panel-title collapsed" role="button" href="#more"
+                                   data-toggle="modal">添加商品</a>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <!--
+                    作者：lzslov@qq.com
+                    时间：2016-11-01
+                    描述：订单
+                -->
+
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <a class="panel-title collapsed" href="#panel-element-9105121" data-toggle="collapse"
+                               data-parent="#panel-645645">订单</a>
+                        </div>
+                        <div class="panel-collapse collapse" id="panel-element-9105121">
+                            <div class="panel-body">
+                                <a class="panel-title collapsed" href=""> 查看订单</a>
+                            </div>
+                            <div class="panel-body">
+                                <a class="panel-title collapsed" role="button"
+                                   href="#more" data-toggle="modal">添加订单</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-9 column">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>
+                            编号
+                        </th>
+                        <th>
+                            产品
+                        </th>
+                        <th>
+                            内容
+                        </th>
+                        <th>
+                            价格
+                        </th>
+                        <th>
+                            操作
+                        </th>
+                    </tr>
+                    </thead>
+
+                    <tbody>
+                    {{type}}
+                    <tr v-for="temp in result">
+                        <td>
+                            {{ temp.id }}
+                        </td>
+                        <td>
+                            {{ temp.name }}
+                        </td>
+                        <td>
+                            {{ temp.content }}
+                        </td>
+                        <td>
+                            {{ temp.price }}
+                        </td>
+                        <td>
+                            <a href="#more" class="btn btn-info"
+                               data-toggle="modal">修改</a>
+
+                            <button v-on:click="delete" class="btn btn-danger" id="{{ temp.id }}">删除</button>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+                <ul class="pagination">
+                    <li>
+                        <a href="#">Prev</a>
+                    </li>
+                    <li>
+                        <a href="#">1</a>
+                    </li>
+                    <li>
+                        <a href="#">2</a>
+                    </li>
+                    <li>
+                        <a href="#">3</a>
+                    </li>
+                    <li>
+                        <a href="#">4</a>
+                    </li>
+                    <li>
+                        <a href="#">5</a>
+                    </li>
+                    <li>
+                        <a href="#">Next</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row clearfix">
+            <div class="col-md-12 column" style="color: #9D9D9D;">
+                <h5 class="text-center">
+                    Copyright © 2016-2017 玉龙雪山 fozzz.com All Rights Reserved. 备案号：川ICP备0000000号
+                </h5>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="modal fade" id="more" role="dialog" aria-hidden="true"
+         aria-labelledby="myModalLabel">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button class="close" aria-hidden="true" type="button"
+                            data-dismiss="modal">×
+                    </button>
+                    <h4 class="modal-title">
+                        {{title}}
+                    </h4>
+                </div>
+                <form role="form" action="{{url}}">
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label for="name">产品</label>
+                            <input type="text" class="form-control" id="name" name="name"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="content">内容</label>
+                            <input type="text" class="form-control" id="content" name="content"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="price">价格</label>
+                            <input type="number" class="form-control" id="price" name="price"/>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-default" type="button" data-dismiss="modal">
+                            关闭
+                        </button>
+                        <button class="btn btn-primary" type="submit">保存</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
+<script>
+    new Vue({
+        el: '#fozzz',
+        data: {
+            type: '',
+            result: [],
+            url: '../api/goods/post',
+            title: '添加商品'
+        },
+        ready: function () {
+            this.get()
+        },
+        methods: {
+            get: function () {
+                apiUrl = "../api/goods/get";
+                this.$http.get(apiUrl)
+                        .then(function (response) {
+                            this.$set('result', response.data);
+                        })
+            },
+            delete: function (event) {
+                apiUrl = "../api/goods/delete?id=" + event.target.id;
+                this.$http.get(apiUrl)
+                        .then(function (response) {
+                            if (response.ok) {
+                                this.get()
+                            } else {
+                                alert("删除失败，请检查网络")
+                            }
+                        })
+            }
+        }
+
+    })
+</script>
