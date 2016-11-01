@@ -16,7 +16,4 @@ public class GetOrdersid {
         return id;
     }
 
-    public static void main(String[] args) {
-        System.out.println(getOrdersid());
-    }
 }
