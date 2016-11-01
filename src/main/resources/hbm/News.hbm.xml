@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC
+        "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- package 实体所在的包名 -->
+<hibernate-mapping package="ssh.entity">
+	<class name="News">
+		<id name="id" column="id">
+			<generator class="native" />
+		</id>
+		<property name="name" />
+		<property name="content" />
+		<property name="type" />
+	</class>
+</hibernate-mapping>
