@@ -154,8 +154,8 @@
                             <ul>
                                 <li ng-repeat="each in jqxw">
                                     <i class="scenic-i"></i>
-                                    <a href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel">{{each.title}}</a>
-                                    <span>{{each.uptime}}</span>
+                                    <a href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel">{{each.name}}</a>
+                                    <span></span>
                                 </li>
                             </ul>
                         </div>
@@ -165,8 +165,8 @@
                             <ul>
                                 <li ng-repeat="each in jqhd">
                                     <i class="scenic-i"></i>
-                                    <a href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel">{{each.title}}</a>
-                                    <span>{{each.uptime}}</span>
+                                    <a href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel">{{each.name}}</a>
+                                    <span></span>
                                 </li>
                             </ul>
                         </div>
@@ -187,8 +187,8 @@
                             <ul>
                                 <li ng-repeat="each in jqgg">
                                     <i class="scenic-i"></i>
-                                    <a href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel">{{each.title}}</a>
-                                    <span>{{each.uptime}}</span>
+                                    <a href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel">{{each.name}}</a>
+                                    <span></span>
                                 </li>
                             </ul>
 
@@ -223,8 +223,8 @@
                         <dl ng-repeat="each in xsjqxl">
                             <dt><a href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel"><img src="images/img-01.jpg"/></a></dt>
                             <dd>
-                                <span class="recommend-t"><a href="twoStage/activity.do?id={{each.id}}&&number=threeLevel"> {{each.title}}</a></span>
-                                <div class="recommend-txt">{{each.brief}}</div>
+                                <span class="recommend-t"><a href="twoStage/activity.do?id={{each.id}}&&number=threeLevel"> {{each.name}}</a></span>
+                                <div class="recommend-txt">{{each.content}}</div>
                             </dd>
                         </dl>
 
@@ -234,8 +234,8 @@
                         <dl ng-repeat="each in dylxl">
                             <dt><a href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel"><img src="images/img-01.jpg"/></a></dt>
                             <dd>
-                                <span class="recommend-t"><a href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel"> {{each.title}}</a></span>
-                                <div class="recommend-txt">{{each.brief}}</div>
+                                <span class="recommend-t"><a href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel"> {{each.name}}</a></span>
+                                <div class="recommend-txt">{{each.content}}</div>
                             </dd>
                         </dl>
                     </div>
@@ -254,7 +254,7 @@
                         <span><img src="images/img-03.jpg"/></span>
                         <ul ng-controller="c">
                             <li ng-repeat="each in tjjd"><i class="recom-ico"><img src="images/ico-02.jpg"/></i><a
-                                    href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel">{{each.title}}</a></li>
+                                    href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel">{{each.name}}</a></li>
                             <!--<li><i class="recom-ico"><img src="images/ico-02.jpg"/></i><a-->
                             <!--href="threeLevel/activity.html">雪山金茂酒店</a></li>  -->
                         </ul>
@@ -267,7 +267,7 @@
                         <span><img src="images/img-03.jpg"/></span>
                         <ul ng-controller="c">
                             <li ng-repeat="each in tjxsms"><i class="recom-ico"><img src="images/ico-02.jpg"/></i><a
-                                    href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel">{{each.title}}</a></li>
+                                    href="threeLevel/activity.do?id={{each.id}}&&number=threeLevel">{{each.name}}</a></li>
                             <!--<li><i class="recom-ico"><img src="images/ico-02.jpg"/></i><a-->
                             <!--href="threeLevel/activity.html">雪山金茂酒店</a></li>-->
                         </ul>
@@ -385,34 +385,34 @@
 </html>
 <script type="application/javascript">
     angular.module('myApp', []).controller('c', function($scope,$http) {
-        var url="http://localhost:8080/indexServlet";
+        var url="http://localhost:8080/api/main/showNewsList";
         var postData = {text:'long blob of text'};
-        var config = {params: {plate: "景区新闻"}};
+        var config = {params: {type: "景区新闻"}};
         $http.post(url, postData, config).success( function(json) {
             $scope.jqxw = json;
         });
 
-        var config = {params: {plate: "景区活动"}};
+        var config = {params: {type: "景区活动"}};
         $http.post(url, postData, config).success( function(json) {
             $scope.jqhd = json;
         });
-        var config = {params: {plate: "景区公告"}};
+        var config = {params: {type: "景区公告"}};
         $http.post(url, postData, config).success( function(json) {
             $scope.jqgg = json;
         });
-        var config = {params: {plate: "雪山景区线路"}};
+        var config = {params: {type: "玉龙雪山推荐线路"}};
         $http.post(url, postData, config).success( function(json) {
             $scope.xsjqxl = json;
         });
-        var config = {params: {plate: "大玉龙线路"}};
+        var config = {params: {type: "大玉龙推荐线路"}};
         $http.post(url, postData, config).success( function(json) {
             $scope.dylxl = json;
         });
-        var config = {params: {plate: "推荐酒店"}};
+        var config = {params: {type: "推荐酒店"}};
         $http.post(url, postData, config).success( function(json) {
             $scope.tjjd = json;
         });
-        var config = {params: {plate: "推荐雪山美食"}};
+        var config = {params: {type: "推荐雪山美食"}};
         $http.post(url, postData, config).success( function(json) {
             $scope.tjxsms = json;
         });
