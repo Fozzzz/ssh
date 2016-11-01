@@ -2,7 +2,6 @@
 <!DOCTYPE hibernate-mapping PUBLIC
         "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-<!-- package 实体所在的包名 -->
 <hibernate-mapping package="ssh.entity">
 	<class name="Order">
 		<id name="id" column="id">
