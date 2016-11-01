@@ -3,7 +3,7 @@ package ssh.entity;
 /**
  * Created by Administrator on 2016/11/1.
  */
-public class Order {
+public class Orders {
     /***
      * 购票人
      */
@@ -20,10 +20,10 @@ public class Order {
      */
     private String status;
 
-    public Order() {
+    public Orders() {
     }
 
-    public Order(Integer id, String username, String phone, String cars, String status) {
+    public Orders(Integer id, String username, String phone, String cars, String status) {
         this.id = id;
         this.username = username;
         this.phone = phone;
