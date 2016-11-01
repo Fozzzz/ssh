@@ -14,7 +14,8 @@ import java.util.List;
  * 显示商品的信息
  * Created by Administrator on 2016/11/1.
  */
-@Controller("/goods")
+@Controller
+@RequestMapping("/goods")
 public class GoodsWeb {
     @Autowired
     private GoodDao goodDao;
